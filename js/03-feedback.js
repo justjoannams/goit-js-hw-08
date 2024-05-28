@@ -9,3 +9,31 @@ const refs = {
   input: document.querySelector("input"),
 };
 const formData = {};
+
+populateTextarea();
+
+refs.form.addEventListener("input", throttle(onTextareaInput, 500));
+
+refs.form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  e.currentTarget();
+  const objData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  localStorage.removeItem(STORAGE_KEY);
+});
+
+function onTextareaInput(e) {
+  formData[e.target.name] = e.target.value;
+  const stringifiedData = JSON.stringify(formData);
+  localStorage.setItem(STORAGE_KEY, stringifiedData);
+}
+
+function populateTextarea() {
+  const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+  if (savedMessage === null) {
+    //console.log(savedMessage);
+    return;
+  }
+  refs.textarea.value = savedMessage["message"] || "";
+  refs.input.value = savedMessage["email"] || "";
+}
