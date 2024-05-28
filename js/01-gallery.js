@@ -1,6 +1,6 @@
-// import SimpleLightbox from "./node_modules/simplelightbox";
-// import "./node_modules/simplelightbox/dist/simple-lightbox.min.css";
-// import "./node_modules/simplelightbox/dist/simple-lightbox.css";
+// import SimpleLightbox from "../node_modules/simplelightbox/src/simple-lightbox.js";
+// import "../node_modules/simplelightbox/dist/simple-lightbox.min.js";
+// import "../node_modules/simplelightbox/dist/simple-lightbox.js";
 // Add imports above this line
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
@@ -25,4 +25,4 @@ galleryContainerEl.addEventListener("click", (event) => {
     return;
   }
 });
-// console.log(galleryItems);
+console.log(galleryItems);
